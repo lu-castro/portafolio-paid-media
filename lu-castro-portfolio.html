@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucía Castro — Paid Media & Content Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #ECE7DC;
+    --paper-warm: #E3DCCC;
+    --ink: #1B1E36;
+    --ink-soft: #4A4E6B;
+    --cobalt: #33499C;
+    --cobalt-deep: #232F6B;
+    --violet: #6E56B0;
+    --rule: #C7BFAC;
+    --stamp-red: #9C3B31;
+    --green: #3C6B4F;
+    --radius: 3px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--cobalt); color:var(--paper);}
+
+  a{color:inherit;}
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--cobalt-deep);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--cobalt-deep);
+    display:inline-block;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    color:var(--ink);
+  }
+
+  .wrap{
+    max-width:980px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(236,231,220,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{
+    max-width:980px; margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .mark{
+    font-family:'Fraunces', serif; font-weight:700; font-size:19px;
+    display:flex; align-items:center; gap:9px;
+  }
+  .mark .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--stamp-red);
+    display:inline-block;
+  }
+  nav.links{display:flex; gap:26px; font-size:14px;}
+  nav.links a{
+    text-decoration:none; color:var(--ink-soft); font-weight:500;
+    position:relative; padding-bottom:2px;
+  }
+  nav.links a:hover{color:var(--ink);}
+  .nav-cta{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    border:1px solid var(--ink); padding:7px 14px; border-radius:var(--radius);
+    text-decoration:none; color:var(--ink); white-space:nowrap;
+    transition:background .15s ease, color .15s ease;
+  }
+  .nav-cta:hover{background:var(--ink); color:var(--paper);}
+
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 80px;
+    border-bottom:1px solid var(--rule);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(to bottom, transparent, transparent 34px, rgba(27,30,54,0.035) 35px);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative;
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:40px;
+    align-items:end;
+  }
+  .hero h1{
+    font-size:clamp(34px, 5vw, 54px);
+    line-height:1.08;
+    margin:20px 0 22px;
+    max-width:11.5ch;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--cobalt-deep);
+  }
+  .hero p.lede{
+    font-size:17px; color:var(--ink-soft); max-width:46ch; margin:0 0 30px;
+  }
+  .hero-cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:13px;
+    padding:12px 20px; border-radius:var(--radius); text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--cobalt-deep); color:var(--paper);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 6px 0 rgba(35,47,107,0.25);}
+  .btn-ghost{border:1px solid var(--ink); color:var(--ink);}
+  .btn-ghost:hover{transform:translateY(-2px); box-shadow:0 6px 0 rgba(27,30,54,0.12);}
+
+  /* stamp */
+  .stamp{
+    justify-self:end;
+    width:150px; height:150px;
+    border:2px solid var(--stamp-red);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transform:rotate(-11deg);
+    color:var(--stamp-red);
+    font-family:'IBM Plex Mono', monospace;
+    text-align:center;
+    position:relative;
+    flex-shrink:0;
+    opacity:0.9;
+  }
+  .stamp::before, .stamp::after{
+    content:""; position:absolute; border:1px solid var(--stamp-red); border-radius:50%; opacity:.55;
+  }
+  .stamp::before{inset:8px;}
+  .stamp-text{font-size:11.5px; letter-spacing:.08em; line-height:1.5; text-transform:uppercase;}
+  .stamp-text b{display:block; font-size:14px; letter-spacing:.12em;}
+
+  .hero-meta{
+    display:flex; gap:22px; margin-top:38px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft);
+  }
+  .hero-meta span{display:flex; align-items:center; gap:7px;}
+  .hero-meta b{color:var(--ink);}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:74px 0; border-bottom:1px solid var(--rule);}
+  .section-head{
+    display:grid; grid-template-columns:220px 1fr; gap:30px; margin-bottom:44px;
+  }
+  .section-head h2{font-size:clamp(26px,3.4vw,34px); max-width:14ch;}
+  .section-head .lede{color:var(--ink-soft); font-size:15.5px; max-width:56ch; margin-top:14px;}
+
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- OBJETIVO ---------- */
+  .objetivo-body p{margin:0 0 16px; max-width:62ch;}
+  .objetivo-body p:last-child{margin-bottom:0;}
+  .pull{
+    border-left:2px solid var(--cobalt); padding-left:18px; margin:26px 0;
+    font-family:'Fraunces', serif; font-style:italic; font-size:19px; color:var(--cobalt-deep);
+    max-width:46ch;
+  }
+
+  /* ---------- EXPERIENCIA timeline ---------- */
+  .timeline{position:relative; margin-left:220px;}
+  .timeline::before{
+    content:""; position:absolute; left:0; top:6px; bottom:6px; width:1px; background:var(--rule);
+  }
+  .tl-item{position:relative; padding:0 0 34px 26px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:""; position:absolute; left:-4.5px; top:6px; width:9px; height:9px;
+    border-radius:50%; background:var(--paper); border:2px solid var(--cobalt-deep);
+  }
+  .tl-head{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline;}
+  .tl-role{font-family:'Fraunces', serif; font-weight:600; font-size:18px;}
+  .tl-dates{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); white-space:nowrap;}
+  .tl-org{font-size:14px; color:var(--cobalt-deep); font-weight:600; margin-top:2px;}
+  .tl-tags{display:flex; flex-wrap:wrap; gap:7px; margin-top:11px;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; padding:4px 9px;
+    border:1px solid var(--rule); border-radius:20px; color:var(--ink-soft);
+  }
+
+  /* section head aligns with timeline on mobile it collapses */
+  @media(max-width:760px){
+    .section-head{grid-template-columns:1fr;}
+    .timeline{margin-left:0;}
+  }
+
+  /* ---------- IA DIFERENCIAL ---------- */
+  .ia-groups{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+  .ia-card{
+    background:var(--paper-warm); border:1px solid var(--rule); border-radius:var(--radius);
+    padding:20px 22px;
+  }
+  .ia-card h3{font-size:13px; font-family:'IBM Plex Mono', monospace; text-transform:uppercase; letter-spacing:.06em; color:var(--cobalt-deep); font-weight:500; margin-bottom:12px;}
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-size:12.5px; padding:5px 11px; border-radius:20px;
+    background:var(--paper); border:1px solid var(--rule);
+  }
+  .chip.ai{border-color:var(--violet); color:var(--violet); background:rgba(110,86,176,0.07);}
+
+  /* ---------- CONTENIDOS & CAMPAÑAS ---------- */
+  .edit-note{
+    display:flex; align-items:flex-start; gap:10px;
+    background:rgba(110,86,176,0.07); border:1px dashed var(--violet);
+    border-radius:var(--radius); padding:13px 16px; margin-bottom:32px;
+    font-size:13.5px; color:var(--ink-soft); max-width:66ch;
+  }
+  .edit-note b{color:var(--violet);}
+  .content-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:24px;
+  }
+  .content-card{display:flex; flex-direction:column; gap:12px;}
+  .media-slot{
+    aspect-ratio:4/5; border:2px dashed var(--rule); border-radius:var(--radius);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; color:var(--ink-soft); text-align:center; padding:18px;
+    background:var(--paper-warm);
+  }
+  .media-slot .plus{
+    font-family:'Fraunces', serif; font-size:26px; color:var(--rule); line-height:1;
+  }
+  .media-slot span{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.02em;}
+  .content-meta .platform{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--cobalt-deep);
+  }
+  .content-title{font-family:'Fraunces', serif; font-weight:600; font-size:16px; margin:5px 0 4px;}
+  .content-desc{font-size:13.5px; color:var(--ink-soft); margin:0 0 8px;}
+  .content-link{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; text-decoration:none;
+    color:var(--cobalt-deep); border-bottom:1px solid var(--cobalt-deep); align-self:flex-start; padding-bottom:1px;
+  }
+  @media(max-width:760px){.content-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.content-grid{grid-template-columns:1fr;}}
+
+  /* ---------- PAID MEDIA ---------- */
+  .paid-stats{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin:36px 0 8px;
+  }
+  .stat-card{
+    background:var(--paper-warm); border:1px dashed var(--rule); border-radius:var(--radius);
+    padding:20px 16px; text-align:center;
+  }
+  .stat-num{
+    font-family:'IBM Plex Mono', monospace; font-size:26px; color:var(--cobalt-deep); font-weight:500;
+  }
+  .stat-label{font-size:12px; color:var(--ink-soft); margin-top:6px;}
+  .paid-cols{display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:36px;}
+  .paid-cols h3{font-family:'IBM Plex Mono', monospace; font-size:12.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--cobalt-deep); font-weight:500; margin-bottom:12px;}
+  .paid-cols ul{margin:0; padding-left:18px; font-size:14.5px;}
+  .paid-cols li{margin-bottom:8px;}
+  @media(max-width:760px){.paid-stats{grid-template-columns:repeat(2,1fr);} .paid-cols{grid-template-columns:1fr; gap:24px;}}
+
+  /* ---------- CASOS (brief cards) ---------- */
+  .cases{display:flex; flex-direction:column; gap:22px;}
+  .case-card{
+    background:var(--paper-warm);
+    border:1px solid var(--rule);
+    border-radius:var(--radius);
+    padding:26px 28px;
+    position:relative;
+  }
+  .case-card::before{
+    content:attr(data-num);
+    position:absolute; top:20px; right:26px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--rule);
+  }
+  .case-title{font-family:'Fraunces', serif; font-weight:600; font-size:20px; margin-bottom:4px; max-width:80%;}
+  .case-sub{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--cobalt-deep); text-transform:uppercase; letter-spacing:.05em; margin-bottom:18px;}
+  .case-fields{display:grid; grid-template-columns:repeat(2,1fr); gap:16px 26px;}
+  .case-field b{
+    display:block; font-family:'IBM Plex Mono', monospace; font-size:10.5px;
+    text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin-bottom:5px;
+  }
+  .case-field p{margin:0; font-size:14.5px;}
+  @media(max-width:640px){.case-fields{grid-template-columns:1fr;}}
+
+  /* ---------- FORMACION ---------- */
+  .edu-list{display:flex; flex-direction:column; gap:0;}
+  .edu-item{
+    display:grid; grid-template-columns:1fr auto; gap:12px;
+    padding:18px 0; border-bottom:1px solid var(--rule);
+  }
+  .edu-item:last-child{border-bottom:none;}
+  .edu-title{font-family:'Fraunces', serif; font-weight:600; font-size:16.5px;}
+  .edu-org{color:var(--ink-soft); font-size:14px; margin-top:2px;}
+  .edu-dates{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); white-space:nowrap; align-self:center;}
+
+  /* ---------- HABILIDADES ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+  .skill-cat h3{font-size:14px; margin-bottom:12px; font-family:'Fraunces', serif;}
+  .skill-cat .chip-row{margin-bottom:4px;}
+
+  @media(max-width:760px){.ia-groups, .skills-grid{grid-template-columns:1fr;}}
+
+  /* ---------- CONTACTO ---------- */
+  footer{padding:84px 0 60px; position:relative;}
+  .contact-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:start;}
+  footer h2{font-size:clamp(30px,4.6vw,44px); max-width:9ch; margin-bottom:18px;}
+  footer p.lede{color:var(--ink-soft); max-width:42ch; margin-bottom:28px;}
+  .contact-links{display:flex; flex-direction:column; gap:0;}
+  .contact-links a{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:15px 0; border-bottom:1px solid var(--rule);
+    text-decoration:none; font-size:15px; font-weight:500;
+  }
+  .contact-links a:first-child{padding-top:0;}
+  .contact-links span.arrow{font-family:'IBM Plex Mono', monospace; color:var(--ink-soft); transition:transform .15s ease;}
+  .contact-links a:hover span.arrow{transform:translateX(4px); color:var(--ink);}
+  .foot-stamp{
+    margin-top:40px; display:inline-flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--green);
+    border:1px solid var(--green); border-radius:20px; padding:7px 14px;
+  }
+  .foot-stamp::before{content:""; width:7px; height:7px; border-radius:50%; background:var(--green); display:inline-block;}
+  .foot-note{margin-top:26px; font-size:12.5px; color:var(--ink-soft);}
+  .credits{
+    margin-top:64px; padding-top:22px; border-top:1px solid var(--rule);
+    font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  @media(max-width:760px){
+    .contact-grid{grid-template-columns:1fr;}
+    .hero-grid{grid-template-columns:1fr;}
+    .stamp{justify-self:start; margin-top:20px;}
+  }
+
+  @media(max-width:640px){
+    nav.links{
+      position:fixed; inset:64px 0 0 0; background:var(--paper);
+      flex-direction:column; padding:30px 28px; gap:0;
+      transform:translateY(-110%); transition:transform .25s ease;
+      z-index:40;
+    }
+    nav.links.open{transform:translateY(0);}
+    nav.links a{padding:16px 0; border-bottom:1px solid var(--rule); font-size:16px;}
+    .burger{display:block;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {pageLanguage: 'es', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE},
+    'google_translate_element'
+  );
+}
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="mark"><span class="dot"></span>Lu Castro</div>
+    <a class="nav-cta" href="mailto:lu.castro@ejemplo.com">Escribime →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Buenos Aires, Argentina</p>
+      <h1>Gestiono pauta en Meta y Google Ads <em>con criterio, no solo con presupuesto</em>.</h1>
+      <p class="lede">Paid media freelance con 4 años de trayectoria entre agencias y clientes independientes — leyendo el brief, armando la estrategia de campaña y reportando resultados que se entienden.</p>
+      <div class="hero-cta-row">
+        <a class="btn btn-primary" href="#paid">Ver paid media ↓</a>
+        <a class="btn btn-ghost" href="mailto:lu.castro@ejemplo.com">Contactar</a>
+      </div>
+      <div class="hero-meta">
+        <span>📍 <b>Buenos Aires,</b> Argentina</span>
+        <span>🗂️ <b>4 años</b> de experiencia</span>
+        <span>🌐 <b>Disponible</b> para freelance</span>
+      </div>
+    </div>
+    <div class="stamp">
+      <div class="stamp-text"><b>Brief</b>leído, interpretado<br>y convertido en<br>campaña</div>
+    </div>
+  </div>
+</section>
+
+<section id="objetivo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Objetivo</p>
+      <div>
+        <h2>De gestionar comunidad a gestionar pauta.</h2>
+      </div>
+    </div>
+    <div class="objetivo-body reveal" style="margin-left:220px;">
+      <p>Empecé gestionando comunidades y calendarios de contenido, y ese recorrido me dio algo que no se aprende solo mirando un dashboard: entender qué le importa a la audiencia antes de decidir dónde poner el presupuesto. Hoy aplico esa misma lógica a la pauta — leer el brief, definir el objetivo real de la campaña y recién ahí tocar Meta Ads o Google Ads.</p>
+      <p class="pull">Un presupuesto bien asignado y un reporte bien leído no le ponen un techo a la campaña: le dan el terreno donde puede crecer.</p>
+      <p>Hoy sigo un posgrado en planning, creatividad e IA en Brother Escuela de Creativos, y me especializo cada vez más en paid media freelance — con foco en testing, generación de leads y reportes que se entienden sin traducción.</p>
+    </div>
+  </div>
+</section>
+
+<section id="paid">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Paid media</p>
+      <div>
+        <h2>Presupuesto con criterio, no solo con presupuesto.</h2>
+        <p class="lede">Gestión de campañas de Meta Ads y Google Ads con foco en generación de leads, testing y lectura de reportes — no solo en subir la pauta.</p>
+      </div>
+    </div>
+
+    <div class="paid-cols reveal">
+      <div>
+        <h3>Qué gestiono</h3>
+        <ul>
+          <li>Campañas de Meta Ads (Facebook e Instagram) e integración con Google Ads</li>
+          <li>Definición y administración de presupuesto por campaña</li>
+          <li>Testing A/B de creativos, copies y audiencias</li>
+          <li>Campañas de generación de leads conectadas a CRM</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Cómo lo reporto</h3>
+        <ul>
+          <li>Reportes mensuales con lectura de resultados, no solo números</li>
+          <li>Seguimiento de KPIs por plataforma y por cliente</li>
+          <li>Email marketing complementario (Doppler) para nutrir leads</li>
+          <li>Recomendaciones de optimización para el siguiente ciclo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Experiencia</p>
+      <div>
+        <h2>Agencias, marcas propias y clientes independientes.</h2>
+        <p class="lede">Un recorrido en community management y content creation que, en el último año, se volcó de lleno a la producción de contenido con IA y a la lectura estratégica de briefs.</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">Content Creator</span>
+          <span class="tl-dates">Ago 2025 — Presente</span>
+        </div>
+        <div class="tl-org">20DEDOS</div>
+        <div class="tl-tags">
+          <span class="tag">ChatGPT · Gemini · Midjourney</span>
+          <span class="tag">FLORA · Claude Code</span>
+          <span class="tag">Lectura de briefs estratégicos</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">Community Manager</span>
+          <span class="tl-dates">Mar 2025 — Presente</span>
+        </div>
+        <div class="tl-org">20DEDOS</div>
+        <div class="tl-tags">
+          <span class="tag">Moderación de comunidad</span>
+          <span class="tag">Programación de contenido</span>
+          <span class="tag">Reportes mensuales</span>
+          <span class="tag">Copywriting</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">Social Media Analyst <span style="font-weight:400;color:var(--ink-soft);">· remoto</span></span>
+          <span class="tl-dates">Dic 2023 — Mar 2025</span>
+        </div>
+        <div class="tl-org">Alex Data</div>
+        <div class="tl-tags">
+          <span class="tag">Estrategia de marketing</span>
+          <span class="tag">Branding</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag">Email marketing (Doppler)</span>
+          <span class="tag">CRM & Lead gen</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">Social Media Manager</span>
+          <span class="tl-dates">May 2024 — Ene 2025</span>
+        </div>
+        <div class="tl-org">Plus One Digital Agency</div>
+        <div class="tl-tags">
+          <span class="tag">Calendarios de contenido</span>
+          <span class="tag">Campañas</span>
+          <span class="tag">Benchmarking</span>
+          <span class="tag">Gestión multicliente</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">Community Manager · DESA Group</span>
+          <span class="tl-dates">Ene 2024 — May 2024</span>
+        </div>
+        <div class="tl-org">Plus One Digital Agency</div>
+        <div class="tl-tags">
+          <span class="tag">LinkedIn · Instagram · Meta Business Suite</span>
+          <span class="tag">Email marketing</span>
+          <span class="tag">Reportes mensuales</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">Community Manager <span style="font-weight:400;color:var(--ink-soft);">· remoto, NY</span></span>
+          <span class="tl-dates">Oct 2023 — Ene 2024</span>
+        </div>
+        <div class="tl-org">RemoteBees</div>
+        <div class="tl-tags">
+          <span class="tag">Benchmarking</span>
+          <span class="tag">SEO</span>
+          <span class="tag">Vínculo talento-empleador</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">Social Media Manager Freelance <span style="font-weight:400;color:var(--ink-soft);">· remoto, España</span></span>
+          <span class="tl-dates">Jun 2023 — Nov 2023</span>
+        </div>
+        <div class="tl-org">terrysoft</div>
+        <div class="tl-tags">
+          <span class="tag">Estrategia de contenido LinkedIn</span>
+          <span class="tag">Monitoreo de KPIs</span>
+        </div>
+      </div>
+
+      <div class="tl-item reveal">
+        <div class="tl-head">
+          <span class="tl-role">Freelance Copywriter</span>
+          <span class="tl-dates">2024 — 2025</span>
+        </div>
+        <div class="tl-org">Upwork</div>
+        <div class="tl-tags">
+          <span class="tag">Redacción SEO</span>
+          <span class="tag">Artículos de blog</span>
+          <span class="tag">Sinopsis editoriales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ia">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Diferencial</p>
+      <div>
+        <h2>IA como integración, no como reemplazo.</h2>
+        <p class="lede">Uso inteligencia artificial en cada etapa del proceso creativo — pero la lectura crítica del brief y la decisión estratégica siguen siendo humanas.</p>
+      </div>
+    </div>
+
+    <div class="ia-groups reveal">
+      <div class="ia-card">
+        <h3>Generación & producción</h3>
+        <div class="chip-row">
+          <span class="chip ai">ChatGPT</span>
+          <span class="chip ai">Gemini</span>
+          <span class="chip ai">Midjourney</span>
+          <span class="chip ai">FLORA</span>
+          <span class="chip ai">Claude Code</span>
+          <span class="chip ai">Fal</span>
+          <span class="chip ai">Kling</span>
+        </div>
+      </div>
+      <div class="ia-card">
+        <h3>Diseño & edición</h3>
+        <div class="chip-row">
+          <span class="chip">Canva</span>
+          <span class="chip">CapCut</span>
+          <span class="chip">Adobe Lightroom</span>
+          <span class="chip">Figma</span>
+          <span class="chip">WordPress</span>
+        </div>
+      </div>
+      <div class="ia-card">
+        <h3>Gestión & análisis</h3>
+        <div class="chip-row">
+          <span class="chip">Notion</span>
+          <span class="chip">Trello</span>
+          <span class="chip">ClickUp</span>
+          <span class="chip">HubSpot</span>
+          <span class="chip">Whimsical</span>
+        </div>
+      </div>
+      <div class="ia-card">
+        <h3>Growth & paid</h3>
+        <div class="chip-row">
+          <span class="chip">Meta Ads</span>
+          <span class="chip">Google Ads</span>
+          <span class="chip">Email Marketing</span>
+          <span class="chip">SEO</span>
+          <span class="chip">LinkedIn Sales Navigator</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contenidos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Contenidos & campañas</p>
+      <div>
+        <h2>El contenido que sostiene la pauta.</h2>
+        <p class="lede">La otra mitad del trabajo: piezas y calendarios pensados para funcionar como creativos de campaña, no solo como contenido organico.</p>
+      </div>
+    </div>
+
+
+    <div class="content-grid reveal">
+      <div class="content-card">
+        <div class="media-slot"><span class="plus">+</span><span>Reemplazar con<br>captura / video</span></div>
+        <div class="content-meta">
+          <div class="platform">Instagram · Reel</div>
+          <div class="content-title">Nombre de la pieza</div>
+          <p class="content-desc">Breve contexto: para qué cliente, qué objetivo tenía y qué resolviste vos.</p>
+          <a class="content-link" href="#">Ver publicación →</a>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="media-slot"><span class="plus">+</span><span>Reemplazar con<br>captura / video</span></div>
+        <div class="content-meta">
+          <div class="platform">TikTok</div>
+          <div class="content-title">Nombre de la pieza</div>
+          <p class="content-desc">Breve contexto: para qué cliente, qué objetivo tenía y qué resolviste vos.</p>
+          <a class="content-link" href="#">Ver publicación →</a>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="media-slot"><span class="plus">+</span><span>Reemplazar con<br>captura / video</span></div>
+        <div class="content-meta">
+          <div class="platform">Instagram · Carrusel</div>
+          <div class="content-title">Nombre de la pieza</div>
+          <p class="content-desc">Breve contexto: para qué cliente, qué objetivo tenía y qué resolviste vos.</p>
+          <a class="content-link" href="#">Ver publicación →</a>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="media-slot"><span class="plus">+</span><span>Reemplazar con<br>captura / calendario</span></div>
+        <div class="content-meta">
+          <div class="platform">Calendario editorial</div>
+          <div class="content-title">Nombre del cliente</div>
+          <p class="content-desc">Un mes de planificación de contenido: temas, formatos y frecuencia por plataforma.</p>
+          <a class="content-link" href="#">Ver caso →</a>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="media-slot"><span class="plus">+</span><span>Reemplazar con<br>captura / link</span></div>
+        <div class="content-meta">
+          <div class="platform">LinkedIn</div>
+          <div class="content-title">Nombre de la pieza</div>
+          <p class="content-desc">Breve contexto: para qué cliente, qué objetivo tenía y qué resolviste vos.</p>
+          <a class="content-link" href="#">Ver publicación →</a>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="media-slot"><span class="plus">+</span><span>Reemplazar con<br>captura / video</span></div>
+        <div class="content-meta">
+          <div class="platform">Activación / giveaway</div>
+          <div class="content-title">Nombre de la campaña</div>
+          <p class="content-desc">Breve contexto: objetivo de la activación y tu rol en la ejecución.</p>
+          <a class="content-link" href="#">Ver caso →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="casos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Casos de trabajo</p>
+      <div>
+        <h2>Tres briefs, tres formas de resolver.</h2>
+        <p class="lede">Recortes reales de mi trayectoria, presentados como los leo yo: en formato brief.</p>
+      </div>
+    </div>
+
+    <div class="cases reveal">
+      <div class="case-card" data-num="01">
+        <div class="case-title">Identidad de marca desde cero</div>
+        <div class="case-sub">Fotógrafo de banda de rock — Community Manager freelance</div>
+        <div class="case-fields">
+          <div class="case-field"><b>Desafío</b><p>Un perfil sin identidad visual definida ni narrativa consistente en redes.</p></div>
+          <div class="case-field"><b>Enfoque</b><p>Construcción de identidad de marca desde cero y calendario editorial narrativo, alineado a la estética del cliente.</p></div>
+          <div class="case-field"><b>Rol</b><p>Estrategia de contenido, producción y gestión de comunidad en Instagram y Facebook.</p></div>
+          <div class="case-field"><b>Aporte</b><p>Un sistema de contenido consistente que sostuvo el storytelling de marca en el tiempo.</p></div>
+        </div>
+      </div>
+
+      <div class="case-card" data-num="02">
+        <div class="case-title">Gestión simultánea multicliente</div>
+        <div class="case-sub">Plus One Digital Agency — Social Media Manager</div>
+        <div class="case-fields">
+          <div class="case-field"><b>Desafío</b><p>Sostener calidad y consistencia en varias cuentas de clientes a la vez, cada una con su propio proceso.</p></div>
+          <div class="case-field"><b>Enfoque</b><p>Metodología replicable: brief → calendario → producción → reporte, adaptada a cada marca.</p></div>
+          <div class="case-field"><b>Rol</b><p>Calendarios de contenido, campañas, benchmarking y reportes mensuales.</p></div>
+          <div class="case-field"><b>Aporte</b><p>Un flujo de trabajo ordenado que la agencia pudo escalar a nuevas cuentas.</p></div>
+        </div>
+      </div>
+
+      <div class="case-card" data-num="03">
+        <div class="case-title">Producción de contenido con IA integrada</div>
+        <div class="case-sub">20DEDOS — Content Creator</div>
+        <div class="case-fields">
+          <div class="case-field"><b>Desafío</b><p>Producir más contenido, más rápido, sin perder profundidad estratégica en el proceso.</p></div>
+          <div class="case-field"><b>Enfoque</b><p>Integración de herramientas de IA generativa (ChatGPT, Gemini, Midjourney, FLORA, Claude Code) en research, ideación y producción.</p></div>
+          <div class="case-field"><b>Rol</b><p>Lectura e interpretación de briefs estratégicos como filtro de cada pieza generada.</p></div>
+          <div class="case-field"><b>Aporte</b><p>Producción más ágil, manteniendo la alineación estratégica como no negociable.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formacion">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Formación</p>
+      <div>
+        <h2>Eterna estudiante, por elección.</h2>
+        <p class="lede">Comunicación, crítica de artes y marketing — una base poco común que sostiene la mirada estratégica.</p>
+      </div>
+    </div>
+
+    <div class="edu-list reveal" style="margin-left:220px;">
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">Posgrado en Planning, Creatividad e IA</div>
+          <div class="edu-org">Brother Escuela de Creativos</div>
+        </div>
+        <div class="edu-dates">En curso</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">Licenciatura en Crítica de Artes</div>
+          <div class="edu-org">Universidad Nacional de las Artes (UNA)</div>
+        </div>
+        <div class="edu-dates">2022 — 2026</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">Analista de Marketing</div>
+          <div class="edu-org">EducacionIT</div>
+        </div>
+        <div class="edu-dates">2025 — 2026</div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">Bachillerato en Comunicación Social</div>
+          <div class="edu-org">Instituto Adveniat</div>
+        </div>
+        <div class="edu-dates">2016 — 2020</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="habilidades">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Habilidades</p>
+      <div>
+        <h2>Todo el circuito del contenido.</h2>
+      </div>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-cat">
+        <h3>Growth & paid</h3>
+        <div class="chip-row">
+          <span class="chip">Meta Ads</span>
+          <span class="chip">Google Ads</span>
+          <span class="chip">A/B Testing</span>
+          <span class="chip">Lead Generation</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Reporte & cliente</h3>
+        <div class="chip-row">
+          <span class="chip">Reportes mensuales</span>
+          <span class="chip">Gestión multicliente</span>
+          <span class="chip">Atención al cliente</span>
+          <span class="chip">Benchmarking</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Contenido & copy</h3>
+        <div class="chip-row">
+          <span class="chip">Copywriting</span>
+          <span class="chip">Storytelling</span>
+          <span class="chip">Branding</span>
+          <span class="chip">SEO</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>IA & herramientas</h3>
+        <div class="chip-row">
+          <span class="chip ai">ChatGPT</span>
+          <span class="chip ai">Midjourney</span>
+          <span class="chip ai">FLORA</span>
+          <span class="chip ai">Claude Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="contact-grid reveal">
+      <div>
+        <h2>¿Hablamos?</h2>
+        <p class="lede">Disponible para proyectos freelance de paid media — gestión de campañas en Meta Ads y Google Ads, del brief al reporte.</p>
+        <div class="foot-stamp">Disponible — 2026</div>
+        <p class="foot-note">📍 Buenos Aires, Argentina — trabajo de forma remota con clientes en toda la región.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:lu.castro@ejemplo.com">Email <span class="arrow">→</span></a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn <span class="arrow">→</span></a>
+        <a href="https://www.upwork.com/" target="_blank" rel="noopener">Upwork <span class="arrow">→</span></a>
+        <a href="https://www.workana.com/" target="_blank" rel="noopener">Workana <span class="arrow">→</span></a>
+        <a href="https://luciacastro235.blogspot.com/" target="_blank" rel="noopener">Blog <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="credits">
+      <span>Lu Castro © 2026</span>
+      <span>Paid Media Freelance · Content Creator · Buenos Aires</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  // scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.12});
+    reveals.forEach(el => io.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+<div id="google_translate_element" style="position:fixed; top:16px; right:16px; z-index:100;"></div>
+</html>
